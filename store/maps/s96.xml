@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<map>
+  <itemlist>
+    <item model="4504" name="kickramp04">
+      <position x="-1116.28" y="-1308.82" z="12"/>
+      <rotation format="axisangle" x="-0.0000010109" y="-0.0000010109" z="0.9766717478" angle="-0.2147377403"/>
+    </item>
+  </itemlist>
+</map>

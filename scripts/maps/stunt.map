@@ -1,0 +1,17 @@
+/*
+
+File: stunt.map
+
+Description: Adds ramps across the map.
+
+*/
+
+function onScriptLoad()
+{
+    CreateObject(561, 0, -629, 1098.37, 11.45, 255).RotateTo( Quaternion( 0, 0, 2.45, -2.30 ), 0 );
+    CreateObject(560, 1, -174,-193,6.95, 255 ).RotateTo( Quaternion( 0, 0, -0.7, -0.026 ), 0);
+    CreateObject(562, 1, -663, 623, 10.74, 255);
+    CreateObject(562, 1, -601, 730, 20.75, 255);
+    CreateObject(561, 1, 545, -1191, 11.4, 255);
+    CreateObject(562, 1, 556, -1086, 11.9, 255);
+}
