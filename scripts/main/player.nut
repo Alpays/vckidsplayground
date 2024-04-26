@@ -48,7 +48,7 @@ class Player {
 
     // diepos.nut
     diePos = null;
-    spawnOnDeath = true;
+    spawnOnDeath = false;
 
     // sea_sparrow.nut
     sparrowKills = 0;
@@ -77,6 +77,12 @@ class Player {
 
     // vehicle_controls.nut
     lastFlip = 0;
+
+    // spawn_protection.nut
+    spawnTimer = null;
+
+    // basic_commands.nut
+    confirm = false; // /resetstats confirmation.
     
 
     constructor() {
@@ -115,6 +121,8 @@ function onPlayerPart(player, reason) {
     if(playerData[player.ID].healTimer)  playerData[player.ID].healTimer.Delete();
     if(playerData[player.ID].racingVehicle) playerData[player.ID].racingVehicle.Delete();
     if(playerData[player.ID].currentCpMarker) DestroyMarker(playerData[player.ID].currentCpMarker);
+    if(playerData[player.ID].nextCpMarker) DestroyMarker(playerData[player.ID].nextCpMarker);
+    if(playerData[player.ID].spawnTimer) playerData[player.ID].spawnTimer.Delete();
     if(race.isStarted && race.getRacerCount() <= 1) { 
         race.cancelRace("Not enough players.");
     }

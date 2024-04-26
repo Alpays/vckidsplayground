@@ -16,6 +16,7 @@ function onScriptLoad() {
     SetTimeRate(1000);
     SetTaxiBoostJump(true);
     SetJoinMessages(false);
-    SetDeathMessages( false);
+    SetDeathMessages(false);
+    SetDrivebyEnabled(false);
 
 }

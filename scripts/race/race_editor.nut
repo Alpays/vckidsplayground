@@ -31,7 +31,7 @@ class RaceEditor
     }
     function reset()
     {
-        for(local i = 0; i < checkpoints.len(); ++i)
+        for(local i = 0; i < checkpoints.len() - 1; ++i)
         {
             visCp[i].Remove();
         }

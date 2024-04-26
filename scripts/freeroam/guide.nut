@@ -6,7 +6,7 @@ Description: Adds a rule and command list to help the players.
 
 */
 
-cmdlist <- "/rules /register /login /changepass /autologin /stats /heal /wep /spawnwep /buywep (Ammu-Nation only) /buycar1 /buycar2 /getcar1 /getcar2 /sellcar1 /sellcar2 /buyprop /shareprop /exitprop /me /diepos /spree /joinrace /vehcontrols /spec /dance /fps /ping /admins";
+cmdlist <- "/rules /register /login /changepass /autologin /stats /heal /wep /spawnwep /buywep (Ammu-Nation only) /buycar1 /buycar2 /getcar1 /getcar2 /sellcar1 /sellcar2 /buyprop /shareprop /exitprop /me /diepos /spree /startrace /joinrace /vehcontrols /spec /dance /fps /ping /admins /resetstats ";
 modCmdList <- "/setweather /settime /kick /drown /slap /sc ";
 adminCmdList <- "/ban /tempban /unban /unbanip /togglecrouch /goto /bring /bringall /reward /givewep /givewepall /recommands /createrace /deleterace /listraces /addracecp /setracestart /setracevehicle /resetraceeditor /saverace "
 managerCmdList <- "/addvehicle /addprop /setlevel /exec";

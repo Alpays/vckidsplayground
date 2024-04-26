@@ -94,6 +94,12 @@ function CPlayer::DecCash(amount)
     else Cash = Cash - amount;
 }
 
+function CPlayer::IncHealth(health)
+{
+    if(health + Health >= 100) Health = 100;
+    else Health+=health;
+}
+
 function CPlayer::Drown(admin, reason)
 {
     Pos = ::Vector(-149, 717, 6);
@@ -249,5 +255,18 @@ function GetPlayer(plr)
         {
             return null;
         }
+    }
+}
+
+function EndPlayerSpawnProtection(playerid)
+{
+    if(GetPlayer(playerid))
+    {
+        if(!playerData[playerid].inRace || !playerData[playerid].racingVehicle) {
+            local player = GetPlayer(playerid);
+            playerData[player.ID].spawnTimer = null;
+            player.World = 1;
+            player.Immunity = 0;
+        }   
     }
 }

@@ -8,9 +8,9 @@ Description: Adding choosable characters to the spawn screen.
 
 function onScriptLoad() 
 {
-    SetSpawnPlayerPos(-1007,-905,33);
-    SetSpawnCameraPos(-1025,-905,35);
-    SetSpawnCameraLook(-1018,-905,35);
+    SetSpawnPlayerPos(-1482.51, -1005, 18.50);
+    SetSpawnCameraPos(-1478,-998,18.50);
+    SetSpawnCameraLook(-1482, -1005, 18.50);
 
     AddClass(0, RGB(255, 255, 255), 83, Vector(-1169, -615, 11.82), 134, 0,0,0,0,0,0) // Cuban
     AddClass(0, RGB(255, 255, 255), 84, Vector(-1169, -615, 11.82), 134, 0,0,0,0,0,0) // Cuban
@@ -34,5 +34,5 @@ function onScriptLoad()
 
 function onPlayerRequestClass(player, classid, team, skin)
 {
-    player.Angle = (3.14 / 2);
+    player.Angle = -0.8;
 }

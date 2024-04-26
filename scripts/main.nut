@@ -38,6 +38,7 @@ scripts_load("main/stubby03.nut");
 dofile("scripts/main/limits.nut");
 scripts_load("main/spectate.nut");
 scripts_load("main/basic_commands.nut");
+scripts_load("main/spawn_protection.nut");
 
 // Freeroam scripts
 

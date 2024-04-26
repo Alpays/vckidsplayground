@@ -6,10 +6,11 @@ Description: Bonus money for each kill.
 
 */
 
-local killReward = 500;
+local killReward = 750;
 local deathMoney = 250;
 
 function onPlayerKill(killer, player, reason, bodypart) {
     killer.IncCash(killReward);
+    killer.IncHealth(20);
     player.DecCash(deathMoney);
 }

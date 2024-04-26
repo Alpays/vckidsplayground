@@ -17,6 +17,7 @@ messages <-
     "Set your choices of weapons on spawn with /spawnwep",
     "Use /setconfig tag_maxdist 300 for a further nametag distance for sniping!",
     "Use /setconfig game_sensitivity_ratio 0.5 to slower your y axis sensitivity for m4 combats!",
+    "Don't forget to add us to your favorites!",
 ];
 
 function RandomMessage()

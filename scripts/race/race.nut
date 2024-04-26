@@ -56,7 +56,7 @@ class Race
                     local y = ::GetSQLColumnData(q, 3);
                     local z = ::GetSQLColumnData(q, 4);
                     playerData[player.ID].currentCp = ::CreateCheckpoint(player, player.UniqueWorld, false, Vector(x,y,z), ARGB(255, 212,15,212), 6);
-                    playerData[player.ID].currentCpMarker = ::CreateMarker(player.UniqueWorld, Vector(x,y,z), 5, RGB(212,15,212), 2);
+                    playerData[player.ID].currentCpMarker = ::CreateMarker(player.UniqueWorld, Vector(x,y,z), 5, RGBA(221,34,221,255), 2);
                     ::FreeSQLQuery(q);
                 }
                 player.Frozen = false;
@@ -94,12 +94,14 @@ class Race
     {
         if(playerData[player.ID].inRace)
         {
-            if(playerData[player.ID].racingVehicle) {
+            if(playerData[player.ID].racingVehicle.Health > 0) {
                 playerData[player.ID].racingVehicle.Pos = playerData[player.ID].currentCp.Pos;
                 player.Vehicle = playerData[player.ID].racingVehicle;
             }
             else {
-
+                playerData[player.ID].racingVehicle = ::CreateVehicle( vehicle, raceWorldOffset + trackId, playerData[player.ID].currentCp.Pos, startingAngle, 7, 1);
+                playerData[player.ID].racingVehicle.SingleUse = true;
+                player.Vehicle = playerData[player.ID].racingVehicle;
             }
         }
     }
@@ -134,6 +136,7 @@ class Race
             playerData[player.ID].cpTaken++;
             playerData[player.ID].currentCp.Remove();
             ::DestroyMarker(playerData[player.ID].currentCpMarker);
+            if(playerData[player.ID].nextCpMarker) ::DestroyMarker(playerData[player.ID].nextCpMarker);
 
             local q = ::QuerySQL(raceDb, "SELECT * FROM checkpoints WHERE raceid='"+trackId+"' AND cpid='"+(playerData[player.ID].cpTaken + 1)+"'")
             if(q) {
@@ -141,7 +144,18 @@ class Race
                 local y = ::GetSQLColumnData(q, 3);
                 local z = ::GetSQLColumnData(q, 4);
                 playerData[player.ID].currentCp = ::CreateCheckpoint(player, player.UniqueWorld, false, Vector(x,y,z), ARGB(255, 212,15,212), 6);
-                playerData[player.ID].currentCpMarker = ::CreateMarker(player.UniqueWorld, Vector(x,y,z), 5, RGB(212,15,212), 2);
+                playerData[player.ID].currentCpMarker = ::CreateMarker(player.UniqueWorld, Vector(x,y,z), 5, RGBA(221,34,221,255), 0);
+
+                ::FreeSQLQuery(q);
+
+                q = ::QuerySQL(raceDb, "SELECT * FROM checkpoints WHERE raceid='"+trackId+"' AND cpid='"+(playerData[player.ID].cpTaken + 2)+"'");
+                if(q) {
+                    local x = ::GetSQLColumnData(q, 2);
+                    local y = ::GetSQLColumnData(q, 3);
+                    local z = ::GetSQLColumnData(q, 4);
+                    playerData[player.ID].nextCpMarker = ::CreateMarker(player.UniqueWorld, Vector(x,y,z), 5, RGBA(91,23,88,200), 0);                    
+                    ::FreeSQLQuery(q);
+                }
             }
             else {
                 local raceReward = 1000 * getRacerCount();
@@ -156,6 +170,7 @@ class Race
                         if(playerData[player.ID].racingVehicle) playerData[player.ID].racingVehicle.Delete();
                         if(playerData[player.ID].currentCp) playerData[player.ID].currentCp.Remove();
                         if(playerData[player.ID].currentCpMarker) ::DestroyMarker(playerData[player.ID].currentCpMarker);
+                        if(playerData[player.ID].nextCpMarker) ::DestroyMarker(playerData[player.ID].nextCpMarker);
                     }
                 }
             }
@@ -206,8 +221,9 @@ class Race
                     {
                         if(!playerData[player.ID].inRace) {
                             playerData[player.ID].racingVehicle = ::CreateVehicle( vehicle, raceWorldOffset + trackId, startingPos, startingAngle, 7, 1);
+                            playerData[player.ID].racingVehicle.SingleUse = true;
                             player.World = (raceWorldOffset + trackId);
-                            player.Vehicle = FindVehicle(playerData[player.ID].racingVehicle);
+                            player.Vehicle = ::FindVehicle(playerData[player.ID].racingVehicle.ID);
                             player.Vehicle.IsGhost = true;
                             player.Vehicle.Locked = true;
                             playerData[player.ID].inRace = true;

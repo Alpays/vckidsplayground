@@ -31,7 +31,8 @@ function loadVehicles()
             local angle = GetSQLColumnData(q, 5);
             local col1 = GetSQLColumnData(q, 6);
             local col2 = GetSQLColumnData(q, 7);
-            CreateVehicle( model, 1, Vector(x,y,z), angle, col1, col2);
+            local v = CreateVehicle( model, 1, Vector(x,y,z), angle, col1, col2);
+            v.RespawnTimer = (3 * 60000);
             GetSQLNextRow(q);
             ++vehcount;
         }

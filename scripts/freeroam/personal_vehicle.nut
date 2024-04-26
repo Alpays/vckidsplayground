@@ -37,6 +37,7 @@ function GetVehiclePrice(vehiclemodel)
         case VEH_COMET: return 132000;
         case VEH_DELUXO: return 130000;
         case VEH_HOTRING1: case VEH_HOTRING2: case VEH_HOTRING3: return 215000;
+        case VEH_PVOODOO: return 150000;
         case VEH_MERCEDES: return 375000;
         case VEH_FERRARI: return 1000000;
         case VEH_NISSAN: return 850000;

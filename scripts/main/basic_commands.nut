@@ -58,5 +58,21 @@ function onPlayerCommand(player, cmd, text)
             MessagePlayer(COLOR_BLUE + "Admins online (" + playercount + "): " + COLOR_WHITE + playerlist, player);
             break;
         }
+        case "resetstats":
+        {
+            if(playerData[player.ID].registered && playerData[player.ID].logged)
+            {
+                if(playerData[player.ID].confirm) {
+                    playerData[player.ID].kills = 0;
+                    playerData[player.ID].deaths = 0;
+                    playerData[player.ID].confirm = false;
+                    MessagePlayer(COLOR_GREEN + "You have successfully reset your stats!", player);
+                }
+                else {
+                    MessagePlayer(COLOR_RED + "Warning: This command resets your kills and death! In order to confirm this action type this command again.", player);
+                    playerData[player.ID].confirm = true;
+                }
+            }
+        }
     }
 }

@@ -26,3 +26,8 @@ function onPlayerCommand(player, cmd, text)
     race.onPlayerCommand(player, cmd, text);
     onPlayerRaceEditorCommand(player, cmd, text);
 }
+
+function onPlayerSpawn(player)
+{
+    race.onPlayerSpawn(player);
+}
