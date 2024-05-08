@@ -26,7 +26,7 @@ function onScriptLoad()
     // Chainsaw pickups. 
     // Property pickups should be the first pickups that are created upon loading the server. As pickup ids and sql property ids are synced
     CreatePickup( 269, 0, 1, 30.17, -1331, 13, 255, true);
-    CreatePickup( 269, 0, 1, -960.5, 153, 9.30, 255, true);
+    CreatePickup( 269, 0, 1, -962.5, 151.9, 9.30, 255, true);
 }
 
 function onScriptUnload()

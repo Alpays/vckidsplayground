@@ -21,6 +21,8 @@ healthPickups <-
 
     [Vector(-859, -353, 11.09)],
     [Vector(-1001, -1139, 14.86)],
+    [Vector(100.2, -804, 10.46)],
+    [Vector(-346, -542, 17.2)],
 ]
 
 function onScriptLoad()

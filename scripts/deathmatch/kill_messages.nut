@@ -12,6 +12,8 @@ function getKillMessage(weapon)
     {
         case "Fist":       return "fisted";
         case "Sniper":     return "sniped";
+        case "Submachine": return "rifled";
+        case "Pistol":     return "whipped";
         default:           return "killed";
     }
 }

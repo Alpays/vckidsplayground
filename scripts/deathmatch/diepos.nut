@@ -6,6 +6,9 @@ Description: Allows players to spawn where they die for a more quick paced death
 
 */
 
+// Diepos will not work when there are this amount of players or more.
+local maxPlayersForDiePos = 16;
+
 function onPlayerKill(killer, player, r, b)
 {
     playerData[player.ID].diePos = player.Pos;
@@ -15,7 +18,7 @@ function onPlayerSpawn(player)
 {
     if(playerData[player.ID].spawnOnDeath && playerData[player.ID].diePos != null)
     {
-        player.Pos = playerData[player.ID].diePos;
+        if(!GetPlayers() >= maxPlayersForDiePos) player.Pos = playerData[player.ID].diePos;
     }
 }
 
@@ -25,6 +28,10 @@ function onPlayerCommand(player, cmd, text)
     {
         case "diepos":
         {
+            if(GetPlayers() >= maxPlayersForDiePos) {
+                MessagePlayer(COLOR_RED + "Warning: Diepos feature is disabled when there are " + maxPlayersForDiePos + " players or more!", player);
+                return;
+            }
             if(playerData[player.ID].spawnOnDeath)
             {
                 playerData[player.ID].spawnOnDeath = false;

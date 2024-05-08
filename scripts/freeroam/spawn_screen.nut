@@ -30,6 +30,8 @@ function onScriptLoad()
     AddClass(0, RGB(255, 255, 255), 48, Vector(82, 1082, 18.50), 89, 0,0,0,0,0,0) // Street wannabes
     AddClass(0, RGB(255, 255, 255), 93, Vector(-598, 656, 11.07), 123, 0,0,0,0,0,0) // Bikers
     AddClass(0, RGB(255, 255, 255), 94, Vector(-598, 656, 11.07), 123, 0,0,0,0,0,0) // Bikers
+    AddClass(0, RGB(255, 255, 255), 61, Vector(-598, 656, 11.07), 123, 0,0,0,0,0,0) // Construction Worker
+    AddClass(0, RGB(255, 255, 255), 49, Vector(87.74, -841, 10.31), 123, 0,0,0,0,0,0) // lady
 }
 
 function onPlayerRequestClass(player, classid, team, skin)
