@@ -48,8 +48,6 @@ function onPlayerKill(killer, player, reason, bodypart) {
     if(killer.Vehicle) {
         if(killer.Vehicle.Model == VEH_SEASPARROW) {
             playerData[killer.ID].sparrowKills++;
-            killer.Vehicle.Fix();
-            Announce("~w~Sparrow~g~'s health has been refilled!", killer, 1);
             if(playerData[killer.ID].sparrowKills % 5 == 0)
             {
                 local killBonus = playerData[killer.ID].sparrowKills * 100;

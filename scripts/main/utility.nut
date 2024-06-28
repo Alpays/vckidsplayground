@@ -25,6 +25,10 @@ VEH_MERCEDES <- 6402;
 VEH_FERRARI <- 6403;
 VEH_NISSAN <- 6404;
 
+// Custom weapons.
+
+WEP_AK47 <- 100;
+
 function getWeaponType(weapon)
 {
     switch(weapon)
@@ -43,7 +47,7 @@ function getWeaponType(weapon)
             return "Shotgun";
         case 22: case 23: case 24: case 25:
             return "Submachine";
-        case 26: case 27: 
+        case 26: case 27: case 100: 
             return "Rifle";
         case 28: case 29: 
             return "Sniper";
@@ -269,4 +273,30 @@ function EndPlayerSpawnProtection(playerid)
             player.Immunity = 0;
         }   
     }
+}
+
+// These are utility functions to add beta weapons names/ids
+
+function getWeaponName(weapon)
+{
+    if(weapon < 100) return GetWeaponName(weapon);
+    else {
+        switch(weapon)
+        {
+            case 100: return "AK-47";
+            default: return "Unknown";
+        }
+    }
+}
+
+function getWeaponID(weapon)
+{
+    local wepID = GetWeaponID(weapon);
+    if(wepID == 255) {
+        if(weapon.tolower().find("ak") != null)
+        {
+            return 100;
+        }
+    }
+    return GetWeaponID(weapon);
 }

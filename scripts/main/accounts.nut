@@ -48,6 +48,8 @@ class Accounts
             playerData[player.ID].logged = true;
             stuntjumps.RegisterStuntDatabase(player);
             ::MessagePlayer(COLOR_GREEN + "You have successfully registered!", player);
+            ::MessagePlayer(COLOR_GREEN + "You got $2500 as registration bonus!", player);
+            player.IncCash(2500);
         }
     }
 

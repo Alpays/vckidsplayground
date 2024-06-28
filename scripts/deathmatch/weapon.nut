@@ -35,22 +35,22 @@ function onPlayerCommand(player, cmd, text)
                 if(text) {
                     local i = 1;
                     while(GetTok(text, " ", i)) {
-                        switch(GetWeaponID(GetTok(text, " ", i)))
+                        switch(getWeaponID(GetTok(text, " ", i)))
                         {
                             case WEP_MINIGUN: case WEP_RPG: case WEP_GRENADE: 
                             case WEP_REMOTE: case WEP_TEARGAS: case WEP_MOLOTOV: 
                             case WEP_ROCKET: case WEP_CHAINSAW: case WEP_FLAMETHROWER:
                             {
-                                local disallowedwep = GetWeaponID( GetTok(text, " ", i) ); 
-                                disallowedwep = GetWeaponName(disallowedwep);
+                                local disallowedwep = getWeaponID( GetTok(text, " ", i) ); 
+                                disallowedwep = getWeaponName(disallowedwep);
                                 MessagePlayer(COLOR_RED + "You can't get " + disallowedwep, player);
                                 break;
                             }
                             default:
                             {
-                                player.SetWeapon(GetWeaponID(GetTok(text, " ", i)), 9999)
-                                wepid = GetWeaponID(GetTok(text, " ", i))
-                                weplist+= GetWeaponName(wepid) + " ";
+                                player.SetWeapon(getWeaponID(GetTok(text, " ", i)), 9999)
+                                wepid = getWeaponID(GetTok(text, " ", i))
+                                weplist+= getWeaponName(wepid) + " ";
                             }
                         }
     
@@ -76,22 +76,22 @@ function onPlayerCommand(player, cmd, text)
                     playerData[player.ID].spawnweps.clear();
                     playerData[player.ID].spawnweps.resize(NumTok(text, " "), null);
                     while(GetTok(text, " ", i)) {
-                        switch(GetWeaponID(GetTok(text, " ", i)))
+                        switch(getWeaponID(GetTok(text, " ", i)))
                         {
                             case WEP_MINIGUN: case WEP_RPG: case WEP_GRENADE: 
                             case WEP_REMOTE: case WEP_TEARGAS: case WEP_MOLOTOV: 
                             case WEP_ROCKET: case WEP_CHAINSAW: case WEP_FLAMETHROWER:
                             {
-                                local disallowedwep = GetWeaponID( GetTok(text, " ", i) ); 
-                                disallowedwep = GetWeaponName(disallowedwep);
+                                local disallowedwep = getWeaponID( GetTok(text, " ", i) ); 
+                                disallowedwep = getWeaponName(disallowedwep);
                                 MessagePlayer(COLOR_RED + "You can't get " + disallowedwep, player);
                                 break;
                             }
                             default:
                             {
-                                playerData[player.ID].spawnweps.insert(i, GetWeaponID(GetTok(text, " ", i)))
-                                wepid = GetWeaponID(GetTok(text, " ", i))
-                                weplist+= GetWeaponName(wepid) + " ";
+                                playerData[player.ID].spawnweps.insert(i, getWeaponID(GetTok(text, " ", i)))
+                                wepid = getWeaponID(GetTok(text, " ", i))
+                                weplist+= getWeaponName(wepid) + " ";
                             }
                         }
     

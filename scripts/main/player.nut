@@ -89,7 +89,7 @@ class Player {
         stunts = array(20, 0);
         spawnweps = array(5, null);
         spawnweps.insert(0, WEP_M60); 
-        spawnweps.insert(1, WEP_M4); 
+        spawnweps.insert(1, WEP_AK47); 
         spawnweps.insert(2, WEP_UZI); 
         spawnweps.insert(3, WEP_STUBBY); 
         spawnweps.insert(3, WEP_PYTHON); 

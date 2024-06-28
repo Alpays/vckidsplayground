@@ -19,7 +19,7 @@ function getKillMessage(weapon)
 }
 
 function onPlayerKill(killer, player, reason, bodypart) {
-    Message(COLOR_BLUE + killer.Name + COLOR_WHITE + " " + getKillMessage(reason) + " " + COLOR_BLUE + player.Name + COLOR_WHITE + " (" + GetWeaponName(reason) + ") (" + getBodypartName(bodypart) + ")" );
+    Message(COLOR_BLUE + killer.Name + COLOR_WHITE + " " + getKillMessage(reason) + " " + COLOR_BLUE + player.Name + COLOR_WHITE + " (" + getWeaponName(reason) + ") (" + getBodypartName(bodypart) + ")" );
 }
 
 function onPlayerDeath(player, reason)
