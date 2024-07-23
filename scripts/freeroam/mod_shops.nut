@@ -55,7 +55,6 @@ function loadModshops() {
     }
 }
 
-
 function onCheckpointEntered( player, cp ) {
     for(local i = 0; i < modShopCp.len(); ++i) {
         if(cp.ID == modShopCp[i]) {
@@ -80,15 +79,16 @@ function onCheckpointEntered( player, cp ) {
 
 function onPlayerEnterModShop(player, vehicle) {
     playerData[player.ID].modshop = true;
+
+    player.World = player.Vehicle.World = player.UniqueWorld;
+
     vehicle.Pos = Vector(-1007, -848, 7.365);
     vehicle.Angle = Quaternion(0.0, 0.0, 0.01, 0.99);
     player.Frozen = true;
     
-
-    player.World = player.Vehicle.World = player.UniqueWorld;
     player.Vehicle = vehicle;
 
-    player.SetCameraPos(Vector(-1012, -842, 7.63), Vector(-1008.90, -844.90, 7.60));
+    SetPlayerCameraPos(player.ID, -1012, -842, 7.63, -1008.90, -844.90, 7.60, 0);
 
     Announce("~g~Welcome to Vice City Modshop!", player, 0);
     MessagePlayer(COLOR_BLUE + "Press X to fix your vehicle for $1000", player);
@@ -97,7 +97,6 @@ function onPlayerEnterModShop(player, vehicle) {
     MessagePlayer(COLOR_BLUE + "Press enter to buy the vehicle color you chose. ($1500)", player);
     MessagePlayer(COLOR_BLUE + "Press shift to buy the secondary vehicle color you chose. ($750)", player);
     MessagePlayer(COLOR_BLUE + "Press C to buy drift handling (Cars only) ($750)", player);
-    
 }
 
 function onKeyUp(player, key) {

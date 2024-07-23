@@ -33,6 +33,10 @@ class Bans
         ::Message(COLOR_BLUE + "Admin " + COLOR_WHITE + admin + COLOR_BLUE + " banned " + COLOR_WHITE + player.Name + COLOR_BLUE + " reason: " + COLOR_WHITE + reason);
         ::KickPlayer(player);
     }
+    function BanIP(ip, admin, reason)
+    {
+        ::QuerySQL(db, format("INSERT INTO bans(ip ,admin, reason) VALUES('%s', '%s', '%s')", ip,admin,reason));
+    }
     function TempBan(name, admin, duration, reason)
     {
         local player = ::GetPlayer(name);

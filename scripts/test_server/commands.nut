@@ -17,7 +17,7 @@ function getVehModel(model)
 
 function convert04AngleTo03(angle) 
 {
-    return angle =  angle * (180/3.14159265359)
+    return angle = angle * (180/3.14159265359)
 }
 
 function onPlayerSpawn(player)

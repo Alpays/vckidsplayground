@@ -18,7 +18,7 @@ function onPlayerSpawn(player)
 {
     if(playerData[player.ID].spawnOnDeath && playerData[player.ID].diePos != null)
     {
-        if(!GetPlayers() >= maxPlayersForDiePos) player.Pos = playerData[player.ID].diePos;
+        if((GetPlayers() >= maxPlayersForDiePos) == false) player.Pos = playerData[player.ID].diePos;
     }
 }
 

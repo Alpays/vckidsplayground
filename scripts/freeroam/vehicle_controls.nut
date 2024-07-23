@@ -8,6 +8,7 @@ Description: Adds keys to give the player control to the vehicle they're driving
 
 vehicleTaxiLights <- BindKey(true, 0x31, 0, 0)  // 1 Key
 vehicleLights <- BindKey(true, 0x32, 0, 0)      // 2 Key
+vehicleBoot <- BindKey(true, 0x33, 0, 0)        // 3 Key
 flip <- BindKey(true, 0x58, 0, 0) // X Key
 
 function onPlayerCommand(player, cmd, text)
@@ -18,7 +19,7 @@ function onPlayerCommand(player, cmd, text)
         case "vehcontrols":
         case "vc":
         {
-            MessagePlayer(COLOR_YELLOW + "Vehicle controls: 1 - Toggle taxi light, 2 - Toggle vehicle light, X - Flip your vehicle (Requires $500)", player);
+            MessagePlayer(COLOR_YELLOW + "Vehicle controls: 1 - Toggle taxi light, 2 - Toggle vehicle light, 3 - Toggle vehicle boot, X - Flip your vehicle (Requires $500)", player);
             break;
         }
     }
@@ -31,6 +32,9 @@ function onKeyUp(player, key)
     }
     if(key == vehicleLights) {
         if(player.Vehicle) player.Vehicle.Lights = !player.Vehicle.Lights;
+    }
+    if(key == vehicleBoot) {
+        if(player.Vehicle) SetVehicleBonnetOpen(player.Vehicle, !IsVehicleBonnetOpen(player.Vehicle));
     }
     if(key == flip && !playerData[player.ID].modshop) {
         if(player.Vehicle)

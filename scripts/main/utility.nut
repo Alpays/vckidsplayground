@@ -269,7 +269,6 @@ function EndPlayerSpawnProtection(playerid)
         if(!playerData[playerid].inRace || !playerData[playerid].racingVehicle) {
             local player = GetPlayer(playerid);
             playerData[player.ID].spawnTimer = null;
-            player.World = 1;
             player.Immunity = 0;
         }   
     }
@@ -299,4 +298,17 @@ function getWeaponID(weapon)
         }
     }
     return GetWeaponID(weapon);
+}
+
+function isAccountCommand(cmd)
+{
+    switch(cmd)
+    {
+        case "register":
+        case "login":
+        case "changepass":
+            return 1;
+        default:
+            return 0;
+    }
 }

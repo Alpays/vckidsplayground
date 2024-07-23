@@ -25,6 +25,17 @@ function onPlayerCommand(player, cmd, args)
                 else MessagePlayer(COLOR_RED + "Correct usage: /ban <player> <reason>", player);
             }
             break;
+        case "banip":
+            if(adminlevel >= 2) {
+                if(args && NumTok(args, " " >= 2))
+                {
+                    local ipAddr = GetTok(args, " ", 1);
+                    local reason = GetTok(args, " ", 2 NumTok(args, " "));
+                    bans.BanIP(ipAddr, player.Name, reason);
+                    MessagePlayer(COLOR_BLUE + "The ip address: " + COLOR_WHITE + ipAddr + COLOR_BLUE + " should now be banned with reason " + COLOR_WHITE + reason, player);
+                }
+                else MessagePlayer(COLOR_RED + "Correct usage: /banip <ip address> <reason>", player);
+            }
         case "tempban":
             if(adminlevel >= 2) {
                 if(args && NumTok(args, " " ) >= 3)
@@ -66,9 +77,9 @@ function onPlayerCommand(player, cmd, args)
                     if(bans.IsBannedIP(ip))
                     {
                         bans.UnbanIP(ip);
-                        MessagePlayer(COLOR_BLUE + "Ip Adress " + COLOR_WHITE + ip + COLOR_BLUE + " should now be unbanned.", player);
+                        MessagePlayer(COLOR_BLUE + "IP Address " + COLOR_WHITE + ip + COLOR_BLUE + " should now be unbanned.", player);
                     }
-                    else MessagePlayer(COLOR_RED + "Ip Adress " + COLOR_WHITE + ip + COLOR_RED + " is not banned!", player);
+                    else MessagePlayer(COLOR_RED + "IP Address " + COLOR_WHITE + ip + COLOR_RED + " is not banned!", player);
                 }
                 else MessagePlayer(COLOR_RED + "Correct usage: /unbanip <ip adress>", player);
             }

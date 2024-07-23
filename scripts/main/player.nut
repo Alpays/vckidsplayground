@@ -48,7 +48,7 @@ class Player {
 
     // diepos.nut
     diePos = null;
-    spawnOnDeath = false;
+    spawnOnDeath = true;
 
     // sea_sparrow.nut
     sparrowKills = 0;
@@ -103,6 +103,7 @@ function onPlayerJoin(player) {
     playerData[player.ID] = Player();
     accounts.onPlayerJoin(player);
     bans.onPlayerJoin(player);
+    onPlayerInfo(player);
     playerData[player.ID].colour = RGB( random(50, 255), random(50, 255), random(50, 255) );
 }
 

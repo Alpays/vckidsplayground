@@ -30,6 +30,7 @@ dofile("scripts/main/accounts_autosave.nut");
 dofile("scripts/main/g_variables.nut");
 scripts_load("main/accounts_hook.nut");
 dofile("scripts/main/streams.nut");
+scripts_load("main/cmd_prefix.nut");
 
 dofile("scripts/main/bans.nut");
 scripts_load("main/bans_hook.nut");
@@ -80,6 +81,7 @@ scripts_load("admin/moderation.nut");
 scripts_load("admin/administration.nut");
 scripts_load("admin/add_property.nut");
 scripts_load("admin/manager_commands.nut");
+dofile("scripts/admin/player_info.nut");
 
 // Racing scripts
 dofile("scripts/race/race.nut");
